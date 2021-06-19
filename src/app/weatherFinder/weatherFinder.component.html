@@ -1,0 +1,27 @@
+<div class="weather-data layout-column align-items-center mt-50">
+  <section class="layout-row align-items-center justify-content-center">
+      <input type="text" [(ngModel)] = 'searchKey' class="large ml-30" placeholder="Dallas" data-test-id="app-input"/>
+      <button class="" (click)="search()" data-test-id="submit-button">Search</button>
+  </section>
+
+  <section class="mt-20 layout-row align-items-center justify-content-center">
+    <div class="card outlined">
+        <div data-test-id="weather-details" class="card-text pt-10 layout-row justify-content-between">
+            <div class="mt-20 outlined">
+              <i data-test-id="icon-sunny" class="material-icons">wb_sunny</i>
+              <i data-test-id="icon-cold" class="material-icons">ac_unit</i>
+              <span data-test-id="result-temperature" class="temperature">{{res && res[0]?.weather}}</span>
+            </div>
+            <div class="mr-15 mb-15">
+              <div data-test-id="result-wind" class="mt-20">
+                  {{res &&  res[0]?.status[0]}}
+              </div>
+              <div data-test-id="result-humidity" class="mt-20">
+                  {{res && res[0]?.status[0]}}
+              </div>
+            </div>
+        </div>
+        <div data-test-id="no-result" *ngIf="!(res && res.length)" class="layout-row justify-content-center align-items-center card-text" >No Results Found</div>
+    </div>
+  </section>
+</div>
